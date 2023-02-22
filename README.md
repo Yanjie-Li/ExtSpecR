@@ -1,21 +1,21 @@
 
-# SpecEXR
+# ExtSpecR
 ![Screen](/images/22.png)
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The SpecEXR is a shiny app for single tree multi-spectral extraction This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
+The ExtSpecR is a shiny app for single tree multi-spectral extraction This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
 
 ## Installation
 
-You can install the development version of SpecEXR from [GitHub](https://github.com/) with:
+You can install the development version of ExtSpecR from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("Yanjie-Li/SpecEXR")
+devtools::install_github("Yanjie-Li/ExtSpecR")
 ```
 
 Note:`rtools` and "EBImage"  and other packages were required, `rtools` should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html) .  
@@ -23,7 +23,7 @@ Note:`rtools` and "EBImage"  and other packages were required, `rtools` should i
  
 # The source package
 
-if there are something wrong and can not install from github, please try to download the source packages and install it from your R or Rstudio from package Archive file: [package](/source-package/SpecEXR_1.0.tar.gz)
+if there are something wrong and can not install from github, please try to download the source packages and install it from your R or Rstudio from package Archive file: [package](/source-package/ExtSpecR_1.0.tar.gz)
 
 
 
@@ -33,9 +33,9 @@ if there are something wrong and can not install from github, please try to down
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(SpecEXR)
+library(ExtSpecR)
 ## basic example code
-SpecexR_app()
+SpecEXR_app()
 
 ```
 The first page is "Segmentation", it is an visualization  example that the crown spectral of every single tree on one  plantation site has been extracted. the page is showing like this:
