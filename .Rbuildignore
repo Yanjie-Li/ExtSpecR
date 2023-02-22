@@ -1,0 +1,4 @@
+^renv$
+^renv\.lock$
+^ExtSpecR\.Rproj$
+^\.Rproj\.user$
