@@ -1,6 +1,6 @@
 Package: ExtSpecR
 Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Version: 1.0
 Authors@R: 
     person("Yanjie", "Li", , "aj7105@gmail.com", role = "aut" )
 Description:  It is a shiny app for single tree multi-spectral extraction..
@@ -23,4 +23,5 @@ Imports:
   Biobase,
   RStoolbox (>= 0.3.1.9999) 
 LazyData: true
-URL: https://github.com/Yanjie-Li/
+URL: https://github.com/Yanjie-Li/ExtSpecR
+BugReports: https://github.com/Yanjie-Li/ExtSpecR/issues 
