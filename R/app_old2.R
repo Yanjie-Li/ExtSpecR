@@ -1620,7 +1620,7 @@ server <- function(input, output) {
     inFile1 <- input$file2
     if (is.null(inFile1)){
       return(print('please upload raster images')) } else{
-        withProgress(message = 'Calculation in progress',
+        withProgress(message = 'Projecting to WGS84 latitude-longitude coordinate system',
                      detail = 'This may take a while...', value = 0, {
                        plr <- lapply(inFile1$datapath, function(m){
                          rs <-terra::rast(m)

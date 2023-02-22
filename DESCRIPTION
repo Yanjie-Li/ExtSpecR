@@ -15,12 +15,16 @@ Imports:
  shinyjs,
  terra,
   lidR,
+  RCSF,
   exactextractr,
  tidyverse,
  shinyWidgets,
  shinythemes,
   Biobase,
+  EBImage,
   RStoolbox (>= 0.3.1.9999) 
-LazyData: true
+Suggests:
+    testthat
+BiocManagerRequirements: Biobase, EBImage  
 URL: https://github.com/Yanjie-Li/ExtSpecR
 BugReports: https://github.com/Yanjie-Li/ExtSpecR/issues 
