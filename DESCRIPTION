@@ -1,11 +1,10 @@
 Package: ExtSpecR
 Title: What the Package Does (One Line, Title Case)
 Version: 1.0
-Authors@R: 
-    person("Yanjie", "Li", , "aj7105@gmail.com", role = "aut" )
-Description:  It is a shiny app for single tree multi-spectral extraction..
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: person("Yanjie", "Li", email = "aj7105@gmail.com", role = c("aut", "cre"))
+Maintainer: Yanjie Li <aj7105@gmail.com>
+Description: It is a shiny app for single tree multi-spectral extraction..
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
