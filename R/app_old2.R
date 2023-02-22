@@ -512,8 +512,9 @@ ui <- dashboardPage(
             # height = "500px",
             width = 12,
             fluidPage(
-
-              tags$img(src= system.file("images/treese.png", package = "ExtSpecR") ,width = "100%", height = "auto")
+              # images/treese.png
+              #system.file("extdata", "treese.png", package = "ExtSpecR")
+              tags$img(src='images/treese.png',width = "100%", height = "auto")
               # 在src中，你需要提供你想要引用的图片的url或者本地路径
               # image_path system.file("images", "treese.png", package = "ExtSpecR")
 
@@ -1791,7 +1792,7 @@ server <- function(input, output) {
                        sf  <- sf%>% dplyr:: select(treeID,convhull_area)
                        chm2 <- terra::project(chm, '+proj=longlat +datum=WGS84 +no_defs')
 
-                       lidR:::catalog_laxindex(ctg_segmented)
+                       lidR::catalog_laxindex(ctg_segmented)
                        tem3 <- list(crown_polo,sf,chm2,ctg_segmented)
                        names(tem3) <- c('crown_polo','sf','chm2','ctg_segmented')
                        return(tem3)
