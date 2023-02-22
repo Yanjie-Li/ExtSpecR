@@ -18,6 +18,12 @@ library(htmltools)
 library(shinyjs)
 library(shinyWidgets)
 library(shinythemes)
+library(lidR)
+library(terra)
+library(data.table)
+library(tidyverse)
+library(exactextractr)
+library(viridis)
   # packages <- c("shinythemes",'shinyjs', 'RCSF','DT',"shinydashboard",'stars',
   #               'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
   #               'RStoolbox','viridis', 'rgdal','tictoc',
@@ -254,7 +260,7 @@ library(shinythemes)
         rasterDF <- stack(spg)
         library(RStoolbox)
         library(rasterVis)
-        library(viridis)
+
         df <-  ggRGB(rasterDF, r=1, g=5, b=3, stretch = 'lin')+ggtitle(paste0(monthi,"_", fami ))
         print(df)
         imgg <-raster:: as.array(rasterDF )
@@ -1492,7 +1498,7 @@ server <- function(input, output) {
   adraw <-  reactive({
     df_point <- df_products_upload()
     #
-    las <-readLAS(df_point[[1]])
+    las <-lidR::readLAS(df_point[[1]])
     chm <- rasterize_canopy(las, res = 0.1, p2r())
     x11()
     plot.new()
@@ -1535,7 +1541,7 @@ server <- function(input, output) {
     withProgress(message = 'Ploting',
                  detail = 'May take a while...', value = 0, {
                    sele <- draw_cloud()
-                   sele <- readLAS(sele)
+                   sele <- lidR::readLAS(sele)
                    # lapy <- lapply(sele, function(x){
                      sp::plot(sele, bg = "white",size = input$poinsize  , axis = TRUE, legend = TRUE)
                    # })
@@ -1673,7 +1679,7 @@ server <- function(input, output) {
       withProgress(message = 'Downloading',
                    detail = 'please wait...', value = 0, {
                      sele <- draw_cloud()
-                     sele <- readLAS(sele)
+                     sele <- lidR::readLAS(sele)
                      writeLAS(sele, file, index= TRUE)
 
                    })
@@ -1691,7 +1697,7 @@ server <- function(input, output) {
       withProgress(message = 'Downloading',
                    detail = 'please wait...', value = 0, {
                      sele <- draw_cloud()
-                     sele <- readLAS(sele)
+                     sele <- lidR::readLAS(sele)
                      writeLAS(sele, file, index= TRUE)
 
                    })
