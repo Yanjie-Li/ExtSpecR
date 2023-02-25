@@ -13,6 +13,7 @@ Imports:
  shinydashboard,
  htmltools,
  shinyjs,
+ BiocManager,
  terra,
   lidR,
   RCSF,
