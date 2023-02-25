@@ -23,7 +23,11 @@ Imports:
  shinythemes,
   Biobase,
   EBImage,
-  RStoolbox (>= 0.3.1.9999) 
+  remotes, 
+  RStoolbox 
+Remotes:
+    BiocManager::install(c("Biobase", "EBImage")),
+    remotes::install_github("bleutner/RStoolbox")
 Suggests:
     testthat
 BiocManagerRequirements: Biobase, EBImage  
