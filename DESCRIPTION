@@ -27,7 +27,7 @@ Imports:
   remotes, 
   RStoolbox 
 Remotes:
-    devtools::install_github("bleutner/RStoolbox")
+    bleutner/RStoolbox
 Suggests:
     testthat
 BiocManagerRequirements: Biobase, EBImage  
