@@ -12,6 +12,9 @@
 
 
 SpecexR_app <- function() {
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+  BiocManager::install(c("Biobase", "EBImage"))
 library(shiny)
 library(shinydashboard)
 library(htmltools)
@@ -24,6 +27,8 @@ library(data.table)
 library(tidyverse)
 library(exactextractr)
 library(viridis)
+  # 在安装程序中自动安装依赖项
+
 
   print('data read time')
   raster_read  <- function(url) {
