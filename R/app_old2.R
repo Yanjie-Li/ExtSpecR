@@ -445,7 +445,7 @@ ui <- dashboardPage(
         # ),
 
         menuSubItem(
-          "Data input",
+          "Data process",
           tabName = "input"
         ),
         menuSubItem(
@@ -2006,7 +2006,7 @@ server <- function(input, output) {
         library(RStoolbox)
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
         p <-ggRGB(se2,  stretch = "hist")+
-          geom_sf(data = sfff1, fill=NA,col='red' )+
+          geom_sf(data = sfff1, fill=NA,col='black' )+
           geom_sf(data = idnum, fill='orange')+
           ggrepel::geom_label_repel(
             data = idnum,
