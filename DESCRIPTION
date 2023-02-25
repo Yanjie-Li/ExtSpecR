@@ -8,12 +8,15 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Depends:
+  BiocManager,
+  Biobase,
+  EBImage,
 Imports:
  shiny,
  shinydashboard,
  htmltools,
  shinyjs,
- BiocManager,
  terra,
   lidR,
   RCSF,
@@ -22,12 +25,9 @@ Imports:
  tidyverse,
  shinyWidgets,
  shinythemes,
-  Biobase,
-  EBImage,
   remotes, 
   RStoolbox 
 Remotes:
-    BiocManager::install(c("Biobase", "EBImage")),
     remotes::install_github("bleutner/RStoolbox")
 Suggests:
     testthat
