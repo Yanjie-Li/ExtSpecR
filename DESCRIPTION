@@ -20,6 +20,8 @@ Imports:
   lidR,
   RCSF,
   DT,
+  viridis,
+  rasterVis,
   exactextractr,
  tidyverse,
  shinyWidgets,
