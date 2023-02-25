@@ -1774,8 +1774,6 @@ server <- function(input, output) {
                        ctg_norm$overwrite <- TRUE
                        opt_output_files(ctg_norm) <-''
                        ttops <- locate_trees(hmean3,  lmf(ws=as.numeric( input$wscontro) , hmin = as.numeric(input$hmincor)))
-
-
                        tictoc:: toc()
                        tictoc:: tic("processing chm")
                        chm <- rasterize_canopy(ctg_norm, 0.2, p2r(0.15))
@@ -1792,7 +1790,7 @@ server <- function(input, output) {
                        sf  <- sf%>% dplyr:: select(treeID,convhull_area)
                        chm2 <- terra::project(chm, '+proj=longlat +datum=WGS84 +no_defs')
 
-                       lidR::catalog_laxindex(ctg_segmented)
+                       catalog_laxindex(ctg_segmented)
                        tem3 <- list(crown_polo,sf,chm2,ctg_segmented)
                        names(tem3) <- c('crown_polo','sf','chm2','ctg_segmented')
                        return(tem3)

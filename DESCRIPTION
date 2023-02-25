@@ -16,6 +16,7 @@ Imports:
  terra,
   lidR,
   RCSF,
+  DT,
   exactextractr,
  tidyverse,
  shinyWidgets,
