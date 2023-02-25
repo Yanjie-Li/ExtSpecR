@@ -22,6 +22,7 @@ Imports:
   DT,
   viridis,
   sfheaders,
+  tictoc,
   rasterVis,
   exactextractr,
  tidyverse,

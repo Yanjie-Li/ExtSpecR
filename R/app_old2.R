@@ -1527,7 +1527,7 @@ server <- function(input, output) {
                    sele <- draw_cloud()
                    sele <- lidR::readLAS(sele)
                      sp::plot(sele, bg = "white",size = input$poinsize  , axis = TRUE, legend = TRUE)
-                   lapy
+
 
   })
 
