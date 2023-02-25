@@ -1790,7 +1790,7 @@ server <- function(input, output) {
                        sf  <- sf%>% dplyr:: select(treeID,convhull_area)
                        chm2 <- terra::project(chm, '+proj=longlat +datum=WGS84 +no_defs')
 
-                       catalog_laxindex(ctg_segmented)
+                       lidR:::catalog_laxindex(ctg_segmented)
                        tem3 <- list(crown_polo,sf,chm2,ctg_segmented)
                        names(tem3) <- c('crown_polo','sf','chm2','ctg_segmented')
                        return(tem3)
