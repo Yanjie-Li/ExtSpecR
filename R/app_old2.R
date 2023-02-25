@@ -24,23 +24,6 @@ library(data.table)
 library(tidyverse)
 library(exactextractr)
 library(viridis)
-  # packages <- c("shinythemes",'shinyjs', 'RCSF','DT',"shinydashboard",'stars',
-  #               'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
-  #               'RStoolbox','viridis', 'rgdal','tictoc',
-  #               'raster','rdrop2','tools','rasterVis','data.table',
-  #               "librarian","shinydashboard","tictoc",'BiocManager','quickPlot','pacman')
-  # new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
-  # if(length(new.packages)) utils::install.packages(new.packages,repos = "https://cloud.r-project.org")
-
-
-  # tictoc::tic()
-  # # Packages loading
-  # if (!require("EBImage", quietly = TRUE))
-  #   BiocManager::install('EBImage')
-  # if (!require("Biobase", quietly = TRUE))
-  #   BiocManager::install("Biobase")
-  # librarian::shelf(c(packages,'Biobase'),quiet = T)
-  # tictoc::toc()
 
   print('data read time')
   raster_read  <- function(url) {
@@ -290,19 +273,19 @@ library(viridis)
   library(DT)
 
  css<- "body {
-  font-size: 14px;
+  font-size: 20px;
   font-family: 'Open Sans', sans-serif;
 }
 
 .nav > li > a {
   color:  white !important;
   background-color: #ff8c00 !important;
-  font-size: 16px;
+  font-size: 20px;
 }
 .nav-tabs > li > a {
   color:  white !important;
   background-color: #ff8c00 !important;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 
@@ -323,7 +306,7 @@ library(viridis)
 
 .title {
   color: white;
-  font-size: 24px !important;
+  font-size: 26px !important;
   background-color: #ff8c00 !important;
 }
 
@@ -352,26 +335,26 @@ library(viridis)
 .sidebar-menu > li > a {
   color: #c7d0d9 !important;
   font-weight: bold !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
 }
 
 .sidebar-menu > li.active > a {
   background-color: #1c4f6d !important;
   color: #c2dd34 !important;
-  font-size: 16px !important;
+  font-size: 20px !important;
 }
 
 .nav-tabs > li > a {
   background-color: #1c4f6d;
   color: #fff;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .treeview-menu > li > a {
   background-color: #1c4f6d;
   color: #c7d0d9 !important;
   font-weight: bold !important;
-  font-size: 13px !important;
+  font-size: 18px !important;
 }
 
 .navbar-default .navbar-brand {
@@ -401,7 +384,7 @@ library(viridis)
 }
 
 .small-box h3 {
-  font-size: 28px !important;
+  font-size: 20px !important;
   font-weight: bold !important;
   margin: 0 !important;
 }
@@ -471,29 +454,10 @@ ui <- dashboardPage(
         )
       )
 
-      # menuItem(
-      #   "Settings",
-      #   icon = icon("gear"),
-      #   startExpanded = FALSE,
-      #   menuSubItem(
-      #     "General",
-      #     tabName = "general"
-      #   ),
-      #   menuSubItem(
-      #     "User",
-      #     tabName = "user"
-      #   ),
-      #   menuSubItem(
-      #     "About",
-      #     tabName = "about"
-      #   )
-      # ),
-
     )
   ),
   dashboardBody(
     includeCSS(system.file("style.css", package = "ExtSpecR")),
-    # includeCSS("www/style.css"),
     tags$head(
       tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
     ),
@@ -505,19 +469,28 @@ ui <- dashboardPage(
         tabName = "dashboard",
         fluidRow(
           box(
-            title = "flowchat",
+            title = "Flowchat",
             status = "primary",
             solidHeader = TRUE,
             collapsible = TRUE,
             # height = "500px",
             width = 12,
-            fluidPage(
-              # images/treese.png
-              #system.file("extdata", "treese.png", package = "ExtSpecR")
-              tags$img(src='images/treese.png',width = "100%", height = "auto")
-              # 在src中，你需要提供你想要引用的图片的url或者本地路径
-              # image_path system.file("images", "treese.png", package = "ExtSpecR")
+            h2("Please read the flow chart for an introduction to the specific steps of tree phenotyping"),
+            # p("Please read the flow chat for the introduction of the tree phenotyping"
+            #    ),
 
+            fluidPage(
+              mainPanel(
+                plotOutput('treeim',width = "100%", height = "1000px")
+
+              )
+
+              #  # images/treese.png
+              # #system.file("extdata", "treese.png", package = "ExtSpecR")
+              # tags$img(src=system.file("extdata", "treese.png", package = "ExtSpecR"),width = "100%", height = "auto")
+              # # 在src中，你需要提供你想要引用的图片的url或者本地路径
+              # # image_path system.file("images", "treese.png", package = "ExtSpecR")
+              #
 
             )
           )
@@ -1465,6 +1438,14 @@ server <- function(input, output) {
     matou_vis2
   })
 
+
+
+  output$treeim <- renderPlot({
+    sp::plot(EBImage::readImage(system.file("extdata", "treese.png", package = "ExtSpecR")))
+
+  })
+
+
   output$predictPlot <- renderPlot({
     chl_tree <- sigletree2()
     gfdgh1 <- chl_tree %>%unlist(recursive = F)
@@ -1533,25 +1514,13 @@ server <- function(input, output) {
   })
 
 
-
-
-
-
-
   polyroi <- eventReactive(input$drawpolyroi, {
-    withProgress(message = 'Ploting',
-                 detail = 'May take a while...', value = 0, {
                    sele <- draw_cloud()
                    sele <- lidR::readLAS(sele)
-                   # lapy <- lapply(sele, function(x){
                      sp::plot(sele, bg = "white",size = input$poinsize  , axis = TRUE, legend = TRUE)
-                   # })
                    lapy
-                 })
+
   })
-
-
-
 
   output$contents33 <- renderPrint({
     withProgress(message = 'Ploting',
@@ -1739,7 +1708,7 @@ server <- function(input, output) {
   mult  <-  reactive({
     las_12 <- draw_cloud()
     las_list <- list(las_12)
-    withProgress(message = 'Calculation in progress',
+    withProgress(message = 'Segementation in progress',
                  detail = 'This may take a while...', value = 0, {
                    lasdata <-   lapply(las_list, function(ctg){
                      expr <- tryCatch({
@@ -1896,55 +1865,6 @@ server <- function(input, output) {
   data_ext2 <- eventReactive(input$extractBtn, {
     extractData()
   })
-
-
-  # data_ext2  <- reactive({
-  #   dsf1 <- getData()
-  #
-  #   if (is.null(dsf1))
-  #     return('please upload raster images')
-  #
-  #   withProgress(message = 'Extraction in progress',
-  #                detail = 'Time consuming...,please wait', value = 0, {
-  #                  crowte  <- adrarr()$crown_polo
-  #                  ctg_segmented <- adrarr()$ctg_segmented
-  #
-  #                  def <- st_crs(ctg_segmented)
-  #
-  #                  pr <- terra::project(dsf1,def$input,res=0.1)
-  #
-  #                  crff  <- 1:length (crowte$treeID)
-  #                  crown_se  <- lapply(crff, function(fdx){
-  #                    expr <- tryCatch({
-  #
-  #                      sf2  <-  crowte %>% dplyr:: filter(treeID == fdx)
-  #                      subset3 <- clip_roi(ctg_segmented, sf2)
-  #
-  #                      fer <- payload(subset3)  %>% dplyr::select(X,Y,Z,treeID)
-  #                      fer$treeID <- as.factor(fer$treeID)
-  #                      names(fer) <- c('x','y','z','treeID')
-  #                      fer <- as.data.frame(fer)
-  #
-  #                      message(paste0('project',fdx))
-  #
-  #                      dsta <- terra::extract(pr,fer[,c('x','y')],xy=T ) %>% mutate(treeID=fer$treeID,
-  #                                                                                   Z=fer$z,
-  #                                                                                   area=sf2$convhull_area
-  #                      ) %>%drop_na()
-  #                      return(dsta)
-  #
-  #                    },error = function(e){
-  #                      message('Caught an error!')
-  #                      paste(NaN)
-  #
-  #                    })
-  #                  }) %>% invoke(rbind,.)  %>% as.data.frame()%>% mutate_if(is.character,as.numeric)
-  #
-  #                  crown_se
-  #                })
-  #
-  # })
-
 
   sertree  <-  reactive({
     withProgress(message = 'Ploting',
@@ -2308,10 +2228,6 @@ server <- function(input, output) {
       return(NULL)
     print(rma)
 
-    # lapy <- lapply(rma, function(x){
-    #   sp::plot(x, bg = "white", , axis = TRUE, legend = TRUE)
-    # })
-    # lapy
   })
 
 
