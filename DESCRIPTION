@@ -21,6 +21,7 @@ Imports:
   RCSF,
   DT,
   viridis,
+  sfheaders,
   rasterVis,
   exactextractr,
  tidyverse,

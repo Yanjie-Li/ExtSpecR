@@ -75,7 +75,7 @@ library(viridis)
       expr <- tryCatch({
         library("lidR")
         library("rgdal")
-        # library(sfheaders)
+        library(sfheaders)
         library(stars)
 
         library(tidyverse)
