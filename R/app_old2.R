@@ -677,13 +677,13 @@ ui <- dashboardPage(
                 height = "500px",
 
                 box(title = "False color image",width =6, solidHeader = TRUE,
-                    collapsible = TRUE,status = "info", height = "200px",
+                    collapsible = TRUE,status = "info", height = "500px",
 
-                    plotOutput("plotgraph1", width = "100%")),
+                    plotOutput("plotgraph1", width = "100%", height = "500px")),
                 box(title = "VI image",width =6, solidHeader = TRUE,
-                    collapsible = TRUE,status = "info", height = "200px",
+                    collapsible = TRUE,status = "info", height = "500px",
 
-                    plotOutput("plotgraph2", width = "100%"))
+                    plotOutput("plotgraph2", width = "100%", height = "500px"))
 
               )
 
@@ -2406,6 +2406,7 @@ server <- function(input, output) {
                      r <- dat243()
                      res <- writeRaster(r, filename=file, format="GTiff", overwrite=TRUE)
                      print(res@file@name)
+                     res
                    })
     }
 
