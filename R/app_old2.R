@@ -14,7 +14,11 @@
 SpecexR_app <- function() {
   if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-  BiocManager::install(c("Biobase", "EBImage"))
+
+  pkgs <- c("Biobase", "EBImage")
+  if (length(setdiff(pkgs, rownames(installed.packages()))) > 0)
+    BiocManager::install(pkgs)
+
 library(shiny)
 library(shinydashboard)
 library(htmltools)
