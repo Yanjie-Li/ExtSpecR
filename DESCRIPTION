@@ -1,5 +1,5 @@
 Package: ExtSpecR
-Title: What the Package Does (One Line, Title Case)
+Title: Tree detection, segementation and spectral extraction
 Version: 1.0
 Authors@R: person("Yanjie", "Li", email = "aj7105@gmail.com", role = c("aut", "cre"))
 Maintainer: Yanjie Li <aj7105@gmail.com>
