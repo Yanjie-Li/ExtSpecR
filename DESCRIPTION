@@ -19,6 +19,7 @@ Imports:
  terra,
   lidR,
   RCSF,
+  ggrepel,
   DT,
   viridis,
   sfheaders,
