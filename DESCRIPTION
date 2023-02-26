@@ -9,13 +9,16 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
-  BiocManager,
  shiny,
  shinydashboard,
  htmltools,
  shinyjs,
+   lidR
+Remotes:
+    bleutner/RStoolbox
+Suggests:
+  BiocManager,
  terra,
-  lidR,
   RCSF,
   ggrepel,
   DT,
@@ -28,10 +31,7 @@ Imports:
  shinyWidgets,
  shinythemes,
   remotes, 
-  RStoolbox 
-Remotes:
-    bleutner/RStoolbox
-Suggests:
+  RStoolbox,
   Biobase,
   EBImage,
   testthat
