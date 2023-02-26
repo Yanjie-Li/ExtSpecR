@@ -18,15 +18,16 @@ SpecexR_app <- function() {
   pkgs <- c("Biobase", "EBImage")
   if (length(setdiff(pkgs, rownames(installed.packages()))) > 0)
     BiocManager::install(pkgs)
+
   packages <- c("shinythemes", 'shinyWidgets', 'terra', 'htmltools','shinyjs', 'RCSF','DT',
                 "shinydashboard",'stars',
                 'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
                 'RStoolbox','viridis', 'rgdal','tictoc',  'ggrepel',
                 'raster', 'tools','rasterVis','data.table',
                 "librarian" )
+
   new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
   if(length(new.packages)) utils::install.packages(new.packages )
-
 
 
 library(shiny)
