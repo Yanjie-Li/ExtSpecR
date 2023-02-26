@@ -20,28 +20,39 @@ SpecexR_app <- function() {
     BiocManager::install(pkgs)
 
   packages <- c("shinythemes", 'shinyWidgets', 'terra', 'htmltools','shinyjs', 'RCSF','DT',
-                "shinydashboard",'stars',
+                "shinydashboard",'stars','colorspace','readr',
                 'sfheaders','sf','exactextractr', 'lidR', "shiny",'tidyverse',
                 'RStoolbox','viridis', 'rgdal','tictoc',  'ggrepel',
-                'raster', 'tools','rasterVis','data.table',
-                "librarian" )
+                'raster', 'tools','rasterVis','data.table'  )
 
   new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
   if(length(new.packages)) utils::install.packages(new.packages )
+  library(shiny)
+  library(shinydashboard)
+  library(htmltools)
+  library(shinyjs)
+  library(shinyWidgets)
+  library(shinythemes)
+  library(terra)
+  library(tidyverse)
+  library(exactextractr)
+  library(DT)
+  library(rasterVis)
+  library(viridis)
+  library(sfheaders)
+  library(stars)
+  library(data.table)
+  library(sf)
+  library(EBImage)
+  library(tools)
+  library("lidR")
+  library("rgdal")
+  library(raster)
+  library(RStoolbox)
+  library(tictoc)
+  library(readr)
 
 
-library(shiny)
-library(shinydashboard)
-library(htmltools)
-library(shinyjs)
-library(shinyWidgets)
-library(shinythemes)
-library(lidR)
-library(terra)
-library(data.table)
-library(tidyverse)
-library(exactextractr)
-library(viridis)
   # 在安装程序中自动安装依赖项
 
 
@@ -58,7 +69,7 @@ library(viridis)
       imag <- list(imag)
       lapply(imag, function(z)
         expr <- tryCatch({
-          library(raster)
+
           tictoc::tic()
           p_dsm <-  raster::raster(z[grepl('dsm|Dsm', z)][1])
           p_blue <- raster::raster(z[grepl('Blue|blue', z)])
@@ -87,15 +98,15 @@ library(viridis)
     data1 <- readr::read_rds(system.file("data.rds", package = "ExtSpecR"))
     # data1 <- readr::read_rds('inst/data.rds' )
     expr <- tryCatch({
-      library(tidyverse)
-      library(raster)
-      library(EBImage)
-      library(tools)
+
+
+
+
       nir <- filter(data1, month == monthi )
       nir2 <- filter(nir, Fam == fami )
       nir3 <- nir2[,-c(1:4)]
       chl <- nir2[,4]
-      library(tidyverse)
+
       matou_vis <- nir3 %>% dplyr:: mutate(
         ndvi=  ((result_NIR - result_Red) / (result_NIR + result_Red)),
         osavi = ((result_NIR-result_Red)*(1+0.16)) / (result_NIR + result_Red + 0.16),
@@ -116,7 +127,7 @@ library(viridis)
       )
 
       tryCatch({
-        library(raster)
+
         nir2 <- sapply(matou_vis[,-c(1:2,8:9)], function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
 
         matou_vis2 <- cbind.data.frame(matou_vis[, c(1:2)], nir2)
@@ -124,8 +135,8 @@ library(viridis)
         coordinates(spg) <- ~ x + y
         gridded(spg) <- TRUE
         rasterDF <- stack(spg)
-        library(RStoolbox)
-        library(rasterVis)
+
+
 
         df <-  ggRGB(rasterDF, r=1, g=5, b=3, stretch = 'lin')+ggtitle(paste0(monthi,"_", fami ))
         print(df)
@@ -153,7 +164,7 @@ library(viridis)
   month <- (unique(data1$month))
   fam <- (unique(data1$Fam))
 
-  library(DT)
+
 
  css<- "body {
   font-size: 20px;
@@ -1186,7 +1197,7 @@ ui <- dashboardPage(
 # 服务器部分
 
 
-library(tools)
+
 options(shiny.maxRequestSize=5000*1024^2)
 server <- function(input, output) {
   trend_data <- reactive({
@@ -1200,7 +1211,7 @@ server <- function(input, output) {
     chl_tree <- sigletree2()
     gfdgh1 <- chl_tree %>%unlist(recursive = F)
     gfdgh1[sapply(gfdgh1, is.null)] <- NULL
-    library(data.table)
+
     fffghj2 <- (gfdgh1[!names(gfdgh1) %like% 'chl'])
     fffghj2[sapply(fffghj2, is.null)] <- NULL
     fffghj2[[1]][is.na(fffghj2[[1]])] <- 0
@@ -1224,16 +1235,16 @@ server <- function(input, output) {
 
   sigletree <- reactive({
 
-    library(tidyverse)
-    library(raster)
-    library(EBImage)
-    library(tools)
+
+
+
+
 
     nir <- filter(data1, month == trend_data2() )
     nir2 <- filter(nir, Fam == trend_data() )
     nir3 <- nir2[,-c(1:4)]
     chl <- nir2[,4]
-    library(tidyverse)
+
     matou_vis <- nir3 %>% dplyr:: mutate(
       ndvi=  ((result_NIR - result_Red) / (result_NIR + result_Red)),
       osavi = ((result_NIR-result_Red)*(1+0.16)) / (result_NIR + result_Red + 0.16),
@@ -1254,7 +1265,7 @@ server <- function(input, output) {
     )
 
     tryCatch({
-      library(raster)
+
       nir2 <- sapply(matou_vis[,-c(1:2,8:9)], function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
 
       matou_vis2 <- cbind.data.frame(matou_vis[, c(1:2)], nir2)
@@ -1262,9 +1273,9 @@ server <- function(input, output) {
       coordinates(spg) <- ~ x + y
       gridded(spg) <- TRUE
       rasterDF <- stack(spg)
-      library(RStoolbox)
-      library(rasterVis)
-      library(viridis)
+
+
+
       df <-  ggRGB(rasterDF, r=1, g=5, b=3, stretch = 'lin')+ggtitle(paste0(trend_data2(),"_",  trend_data() ))
       print(df)
     })
@@ -1286,15 +1297,15 @@ server <- function(input, output) {
 
 
   output$summary2  <- renderPrint({
-    library(tidyverse)
-    library(raster)
-    library(EBImage)
-    library(tools)
+
+
+
+
     nir <- filter(data1, month == trend_data2() )
     nir2 <- filter(nir, Fam == trend_data() )
     nir3 <- nir2[,-c(1:4)]
     chl <- nir2[,4]
-    library(tidyverse)
+
     matou_vis <- nir3 %>% dplyr:: mutate(
       ndvi=  ((result_NIR - result_Red) / (result_NIR + result_Red)),
       osavi = ((result_NIR-result_Red)*(1+0.16)) / (result_NIR + result_Red + 0.16),
@@ -1314,7 +1325,7 @@ server <- function(input, output) {
 
     )
 
-    library(raster)
+
     nir2s <- sapply(matou_vis[,-c(1:2,8:9)], function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
 
     matou_vis2 <- cbind.data.frame(nir2[, c(1:6,12:13)], nir2s)
@@ -1333,12 +1344,12 @@ server <- function(input, output) {
     chl_tree <- sigletree2()
     gfdgh1 <- chl_tree %>%unlist(recursive = F)
     gfdgh1[sapply(gfdgh1, is.null)] <- NULL
-    library(data.table)
+
     fffghj2 <- (gfdgh1[!names(gfdgh1) %like% 'chl'])
     fffghj2[sapply(fffghj2, is.null)] <- NULL
     fffghj2[[1]][is.na(fffghj2[[1]])] <- 0
     y <- brick(fffghj2[[1]])
-    library(viridis)
+
     sp::plot(y,col=viridis(20))
 
 
@@ -1410,10 +1421,10 @@ server <- function(input, output) {
                  detail = 'May take a while...',
                  value = 0,
                  {
-                   library("lidR")
-                   library("rgdal")
-                   library(raster)
-                   library(tidyverse)
+
+
+
+
                    print("plot with RGL device")
                    rma <-  polyroi()
 
@@ -1436,12 +1447,12 @@ server <- function(input, output) {
       chl_tree <- sigletree2()
       gfdgh1 <- chl_tree %>%unlist(recursive = F)
       gfdgh1[sapply(gfdgh1, is.null)] <- NULL
-      library(data.table)
+
       fffghj2 <- (gfdgh1[!names(gfdgh1) %like% 'chl'])
       fffghj2[sapply(fffghj2, is.null)] <- NULL
       fffghj2[[1]][is.na(fffghj2[[1]])] <- 0
       y <- brick(fffghj2[[1]])
-      library(viridis)
+
       sp::plot(y,col=viridis(20))
       dev.off()
     },
@@ -1469,7 +1480,7 @@ server <- function(input, output) {
 
 
   getData <- reactive({
-    library(data.table)
+
     inFile1 <- input$file2
     if (is.null(inFile1)){
       return(print('please upload raster images')) } else{
@@ -1568,10 +1579,10 @@ server <- function(input, output) {
 
   data_dsf1 <- reactive({
     select1 <-input$caption
-    library("lidR")
-    library("rgdal")
-    library(raster)
-    library(tidyverse)
+
+
+
+
     dsf1 <- raster_read(select1)
     dsf1 <- dsf1 %>% unlist(recursive = F) %>%  unlist(recursive = F)
 
@@ -1595,14 +1606,14 @@ server <- function(input, output) {
                  detail = 'This may take a while...', value = 0, {
                    lasdata <-   lapply(las_list, function(ctg){
                      expr <- tryCatch({
-                       library("lidR")
-                       library("rgdal")
-                       library(sfheaders)
-                       library(stars)
-                       library(raster)
-                       library(tidyverse)
-                       library(sf)
-                       library(data.table)
+
+
+
+
+
+
+
+
 
                        tictoc:: tic("processing las file")
                        tictoc:: tic("processing dtm")
@@ -1666,7 +1677,7 @@ server <- function(input, output) {
     },
     content = function(file) {
       withProgress(message = "Exporting Data", {
-        library(sf)
+
         library(zip)
 
         incProgress(0.5)
@@ -1782,10 +1793,10 @@ server <- function(input, output) {
   })
 
   output$contents  <- renderPlot({
-    library("lidR")
-    library("rgdal")
-    library(raster)
-    library(tidyverse)
+
+
+
+
     print("plot with RGL device")
     randese <-  randse()
     if (is.null(randese))
@@ -1886,7 +1897,7 @@ server <- function(input, output) {
       })
     } else{
       tryCatch({
-        library(RStoolbox)
+
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
         p <- ggRGB(se2, stretch = "hist")+
           geom_sf(data = sfff1, fill=NA,col='black' )+
@@ -1974,16 +1985,16 @@ server <- function(input, output) {
   )
 
   output$predictPlot3  <- renderPlot({
-    library(tidyverse)
-    library(raster)
-    library(EBImage)
-    library(tools)
+
+
+
+
     nir <- filter(finaldata(), treeID == as.numeric(input$select2) )
     nir3 <- nir[!names(nir) %in% c('x','y','treeID', 'Z', 'area','ID')]
-    library(raster)
-    library(RStoolbox)
-    library(rasterVis)
-    library(viridis)
+
+
+
+
     nir2 <- sapply(nir3, function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
 
     matou_vis2 <- cbind.data.frame(nir[,c('x','y', 'Z', 'area')], nir2)
@@ -2007,13 +2018,13 @@ server <- function(input, output) {
 
 
   output$predictPlot4  <- renderPlot({
-    library(tidyverse)
-    library(raster)
-    library(EBImage)
-    library(tools)
+
+
+
+
     nir <- dplyr::filter(finaldata(), treeID == as.numeric(input$select2) )
     nir3 <- nir[,-c(1:5)]
-    library(raster)
+
     nir2 <- sapply(nir3, function(x) (x - min(x, na.rm = T)) / (max(x, na.rm = T) - min(x, na.rm=T)))
 
     matou_vis2 <- cbind.data.frame(nir[,c(1:2,4,5)], nir2)
@@ -2070,9 +2081,9 @@ server <- function(input, output) {
       }
     }
 
-    library(RStoolbox)
-    library(rasterVis)
-    library(viridis)
+
+
+
 
   })
 
@@ -2102,10 +2113,10 @@ server <- function(input, output) {
   })
 
   output$contents22 <- renderPrint({
-    library("lidR")
-    library("rgdal")
-    library(raster)
-    library(tidyverse)
+
+
+
+
     print("plot with RGL device")
     rma <-  randomVals()
     if (is.null(rma))
@@ -2130,27 +2141,24 @@ server <- function(input, output) {
 
 
   red2 <-  reactive({
-    library(raster)
     sele1 <- input$red1
     dsf1 <- raster::raster(sele1$datapath)
   })
   green2 <-  reactive({
-    library(raster)
     sele2 <- input$gree1
     dsf2 <- raster::raster(sele2$datapath)
   })
   blue2 <-  reactive({
-    library(raster)
     sele3 <- input$blue1
     dsf3 <- raster::raster(sele3$datapath)
   })
   redege2 <-  reactive({
-    library(raster)
+
     sele4 <- input$redege1
     dsf4 <- raster::raster(sele4$datapath)
   })
   NIR2 <-  reactive({
-    library(raster)
+
     sele5 <- input$NIR1
     dsf5 <- raster::raster(sele5$datapath)
   })
@@ -2244,8 +2252,8 @@ server <- function(input, output) {
 
                    rasterDF <-  try (pyt())
                    if (inherits(rasterDF, "try-error")){stop(print( "Warning: please upload all images" ))}else{
-                     library(RStoolbox)
-                     library(raster)
+
+
                      pyt2 <-  RStoolbox::ggRGB(rasterDF,
 
                                                stretch  = 'hist')
@@ -2262,8 +2270,8 @@ server <- function(input, output) {
 
                    rasterDF <-  try (dat243())
                    if (inherits(rasterDF, "try-error")){stop(print( "Warning: please upload all images" ))}else{
-                     library(RStoolbox)
-                     library(raster)
+
+
                      sp::plot(dat243())}
                  })
 
