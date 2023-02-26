@@ -9,7 +9,7 @@ Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spec
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
 There are two ways to use ExtSpecR packages, first is the normal way:
-## (Firest way) Install package
+## (First way) Install package
 Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
 `Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`
 `stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`
