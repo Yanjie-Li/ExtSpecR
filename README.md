@@ -11,31 +11,9 @@ First of all, you need point cloud data with precise positioning information, wh
 There are two ways to use ExtSpecR packages, first is the normal way:
 ## Installation
 Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
-Biobase
-EBImage
-shinythemes
-shinyWidgets
-terra
-shinyjs
-RCSF
-DT
-shinydashboard
-stars
-colorspace
-readr
-sfheaders
-sf
-exactextractr
-lidR
-tidyverse
-viridis
-rgdal
-tictoc
-ggrepel
-raster
-tools
-rasterVis
-data.table
+`Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`
+`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`
+`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
 If you have not installed any of these packages, you can use the following code to check and install them:
 ``` r
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
@@ -75,7 +53,7 @@ library(ExtSpecR)
 SpecEXR_app()
 
 ```
-#(Second way) The R-portable
+## (Second way) The R-portable
 If you encounter any issues during installation, you can try the following method: download the R-portable compressed file  [R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf), which includes all the required packages, including my ExtSpecR package. After downloading, you can unzip the package, and then click on the "R-Portable.exe" program to open it. You can then use my package normally, for example, using the "ExtSpecR::SpecexR_app()" command.
 
 The advantage of using the R-portable compressed package is that it does not require installation, so you can use it directly without affecting the existing system environment. At the same time, all the required packages have been pre-installed, which can save you time and energy and make it easier for you to use my package.
