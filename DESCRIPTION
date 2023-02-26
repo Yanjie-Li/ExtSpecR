@@ -9,14 +9,14 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
+Remotes:
+    bleutner/RStoolbox
+Suggests:
  shiny,
  shinydashboard,
  htmltools,
  shinyjs,
-   lidR
-Remotes:
-    bleutner/RStoolbox
-Suggests:
+   lidR,
   BiocManager,
  terra,
   RCSF,
