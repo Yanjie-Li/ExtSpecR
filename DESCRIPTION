@@ -10,8 +10,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
   BiocManager,
-  Biobase,
-  EBImage,
  shiny,
  shinydashboard,
  htmltools,
@@ -34,7 +32,9 @@ Imports:
 Remotes:
     bleutner/RStoolbox
 Suggests:
-    testthat
+  Biobase,
+  EBImage,
+  testthat
 BiocManagerRequirements: Biobase, EBImage  
 URL: https://github.com/Yanjie-Li/ExtSpecR
 BugReports: https://github.com/Yanjie-Li/ExtSpecR/issues 
