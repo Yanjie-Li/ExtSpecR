@@ -12,21 +12,6 @@
 
 
 SpecexR_app <- function() {
-  if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-  pkgs <- c("Biobase", "EBImage")
-  if (length(setdiff(pkgs, rownames(installed.packages()))) > 0)
-    BiocManager::install(pkgs)
-
-  packages <- c("shinythemes", 'shinyWidgets', 'terra', 'shinyjs', 'RCSF','DT',
-                "shinydashboard",'stars','colorspace','readr',
-                'sfheaders','sf','exactextractr', 'lidR' ,'tidyverse',
-                'viridis', 'rgdal','tictoc',  'ggrepel',
-                'raster', 'tools','rasterVis','data.table'  )
-
-  new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
-  if(length(new.packages)) utils::install.packages(new.packages )
   library(shiny)
   library(shinydashboard)
   library(htmltools)
