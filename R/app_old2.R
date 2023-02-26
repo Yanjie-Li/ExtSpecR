@@ -2014,7 +2014,7 @@ server <- function(input, output) {
       tryCatch({
         library(RStoolbox)
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
-        p <-ggRGB(se2,  stretch = "hist")+
+        p <- ggRGB(se2, stretch = "hist")+
           geom_sf(data = sfff1, fill=NA,col='black' )+
           geom_sf(data = idnum, fill='orange')+
           ggrepel::geom_label_repel(
@@ -2029,11 +2029,12 @@ server <- function(input, output) {
 
         print(p)
 
-      },
-      error=function(cond) {
-        message("Warning: please upload raster images" )
-        print( "Warning: please upload raster images" )
-      })
+      }
+      # error=function(cond) {
+      #   message("Warning: please upload raster images" )
+      #   print( "Warning: please upload raster images" )
+      # }
+      )
     }
 
   })
