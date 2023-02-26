@@ -9,7 +9,7 @@ Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spec
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
 There are two ways to use ExtSpecR packages, first is the normal way:
-## Installation
+## (Firest way) Install package
 Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
 `Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`
 `stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`
@@ -62,7 +62,7 @@ I hope you can use my R package smoothly! If you still encounter any problems, p
  
 ## brief introduction
 
-let me give a quick rundown of our SpecEXR_app() website![Screen](/images/first.jpg). We've got three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
+let me give a quick rundown of our SpecEXR_app() website.![Screen](/images/first.jpg) We've got three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
 
 In the Introduction section, we've included a handy flowchart that will guide you through the steps of using our app. It's a great way to get a sense of what you can expect and how to get started.
 
@@ -78,7 +78,7 @@ The page is showing like this:
 In the example data section, we've included some data from my own research, extracted with my ExtSpecR package, which includes tree heights, crown area, and crown layer vegetation indices from research site. You can explore each tree's data by viewing the images and checking out the data info page.
 
  
-Next is the most important part of this app, tree phenotyping. It includes two sub-menus: Data process and Download. The main focus is on the Data process menu, which includes four pages: Upload and Draw ROI, Segmentation, LAS plot information, and Extraction and Visualization![Screenshot](/images/treephno.png).
+Next is the most important part of this app, tree phenotyping. It includes two sub-menus: Data process and Download. The main focus is on the Data process menu, which includes four pages: Upload and Draw ROI, Segmentation, LAS plot information, and Extraction and Visualization. ![Screenshot](/images/treephno.png)
 
 On the Upload and Draw ROI page, users need to upload point cloud data and corresponding raster images data. After uploading, click on the Draw ROI polygon button, and a separate R graphic page will appear. Users can select the area of interest by clicking with the left mouse button and finishing by clicking the right mouse button. The uploaded point cloud data, ROI-selected point cloud data, and image spectral information will be displayed on the Point cloud information and Spectral information sub-page.
 
@@ -90,11 +90,6 @@ The final step is Extraction and Visualization![Screenshot](/images/exdt.png). A
 
 Finally, after completing all the steps, users can click on the Download sub-menu to download the final data![Screenshot](/images/down.png), which is available as ".rds" data that can be read in R language. Users can also download the polygon data of each tree extracted during Segmentation. The right-side page shows the data format in an intuitive way.
 
-
-
-
-The third page is "Tree identification and spectra extraction", it is is the core function of this app, The workflow for how to use this page can be found in the flowing graph:
-![Screenshot](/images/treese.png)
 
 ## data
 
