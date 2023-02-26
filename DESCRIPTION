@@ -12,7 +12,10 @@ Imports:
  shiny,
  shinydashboard,
  BiocManager,
- shinyjs
+ shinyjs,
+ RStoolbox,
+ Biobase,
+ EBImage
 Remotes:
     bleutner/RStoolbox
 Suggests:
@@ -30,10 +33,6 @@ Suggests:
  tidyverse,
  shinyWidgets,
  shinythemes,
-  remotes, 
-  RStoolbox,
-  Biobase,
-  EBImage,
   testthat
 BiocManagerRequirements: Biobase, EBImage  
 URL: https://github.com/Yanjie-Li/ExtSpecR
