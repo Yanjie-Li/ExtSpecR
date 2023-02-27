@@ -11,9 +11,7 @@ First of all, you need point cloud data with precise positioning information, wh
 There are two ways to use ExtSpecR packages, first is the normal way:
 ## (First way) Install package
 Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
-`Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`
-`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`
-`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
+`Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
 If you have not installed any of these packages, you can use the following code to check and install them:
 ``` r
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
