@@ -11,7 +11,7 @@
 #'
 
 
-SpecexR_app <- function() {
+ExtSpecR_app <- function() {
   library(shiny)
   library(shinydashboard)
   library(htmltools)
