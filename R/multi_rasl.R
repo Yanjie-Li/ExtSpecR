@@ -32,7 +32,7 @@ multi_rasl <- function(las_list, dsf_list, kwsindice, hmin) {
       tictoc::tic("processing las file")
       tictoc::tic("processing rasterize_terrain")
       opt_output_files(ctg) <-
-        paste0(tempdir(), kwsindice, hmin , "{*}_hd")
+        paste0(tempdir(),rnorm(1), kwsindice, hmin , "{*}_hd")
       opt_chunk_size(ctg) <- 0
       opt_chunk_buffer(ctg) <- 10
       classified_ctg <- classify_ground(ctg, csf())
@@ -49,7 +49,7 @@ multi_rasl <- function(las_list, dsf_list, kwsindice, hmin) {
       chm <- rasterize_canopy(ctg_norm, 0.5, p2r(0.15))
       tictoc::toc()
       tictoc::tic("processing segment_trees")
-      opt_output_files(ctg_norm) <- paste0(tempdir(), kwsindice, hmin)
+      opt_output_files(ctg_norm) <- paste0(tempdir(),rnorm(1), kwsindice, hmin)
       algo <- dalponte2016(chm, ttops)
       ctg_segmented <- segment_trees(ctg_norm, algo)
       tictoc::toc()

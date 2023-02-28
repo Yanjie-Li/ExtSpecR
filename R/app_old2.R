@@ -1591,15 +1591,6 @@ server <- function(input, output) {
                  detail = 'This may take a while...', value = 0, {
                    lasdata <-   lapply(las_list, function(ctg){
                      expr <- tryCatch({
-
-
-
-
-
-
-
-
-
                        tictoc:: tic("processing las file")
                        tictoc:: tic("processing dtm")
                        ctg$overwrite <- TRUE
