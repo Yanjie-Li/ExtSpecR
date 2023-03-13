@@ -52,7 +52,7 @@ ExtSpecR_app()
 
 ```
 ## (Second way) The R-portable
-If you encounter any issues during installation, you can try the following method: download the R-portable compressed file  [R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf), which includes all the required packages, including my ExtSpecR package. After downloading, you can unzip the package, and then click on the "R-Portable.exe" program to open it. You can then use my package normally, for example, using the "ExtSpecR::ExtSpecR_app()" command.
+If you encounter any issues during installation, you can try the following method: download the R-portable compressed file  [R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf1121), which includes all the required packages, including my ExtSpecR package. After downloading, you can unzip the package, and then click on the "R-Portable.exe" program to open it. You can then use my package normally, for example, using the "ExtSpecR::ExtSpecR_app()" command.
 
 The advantage of using the R-portable compressed package is that it does not require installation, so you can use it directly without affecting the existing system environment. At the same time, all the required packages have been pre-installed, which can save you time and energy and make it easier for you to use my package.
 
