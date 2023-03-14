@@ -9,7 +9,7 @@ Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spec
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 ## Preface
 Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install `rtools` using the provided link:
-## [download rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
+## [Download rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
 
 We provided two ways to use ExtSpecR pacakge, first is the normal way:
 ## (First way) Install package
@@ -62,7 +62,7 @@ If you encounter any issues during installation, you can try the following metho
 
 
 ### 1 Download the R-portable compressed file from the link provided: 
-[R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf)
+### [Download R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf)
 ### 2 Unzip the package to a desired location.
 ### 3 Navigate to the extracted directory and double-click on "R-Portable.exe" to open the R environment.
 ### 4 In the R console, load the ExtSpecR package using the following command:
