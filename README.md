@@ -9,10 +9,10 @@ Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spec
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 ## Preface
 Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install `rtools` using the provided link:
-## [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
+## [download rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
 
 We provided two ways to use ExtSpecR pacakge, first is the normal way:
-## (1) Install package
+## (First way) Install package
 Before you install my package, please make sure you have installed all of the required packages that my package depends on. The following R packages are required:
 `Biobase`, `RStoolbox`, `EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
 If you have not installed any of these packages, you can use the following code to check and install them:
@@ -77,6 +77,7 @@ ExtSpecR_app()
 ```
 This will launch the ExtSpecR Shiny app.
 Note that the advantage of using the R-portable package is that it comes with all the required packages pre-installed, so you don't need to install any additional packages or worry about conflicting package versions. Additionally, using R-portable does not affect the existing system environment.
+
 I hope you can use my R package smoothly! If you still encounter any problems, please do not hesitate to contact me and I will do my best to provide assistance.
  
 ## brief introduction
