@@ -8,16 +8,28 @@
 Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spectral extraction This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
-There are two ways to use ExtSpecR packages, first is the normal way:
-## (First way) Install package
-### 1 rtools
- `rtools` required, `rtools` should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
+Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install these packages using the provided code.
+``` r
+# Check if rtools is installed, if not, download and install it
+if (!require("rtools")) {
+  install.packages("https://cran.r-project.org/bin/windows/Rtools/rtools42.exe")
+}
+```
+ OR install manually from: 
+[rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
 
-### 2 dependent packages
-Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
-`Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
+We provided two ways to use ExtSpecR pacakge, first is the normal way:
+## (1) Install package
+Before you install my package, please make sure you have installed all of the required packages that my package depends on. The following R packages are required:
+`Biobase`, `RStoolbox`, `EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
 If you have not installed any of these packages, you can use the following code to check and install them:
 ``` r
+ # First, check and install required packages
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+devtools::install_github("bleutner/RStoolbox")
+
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
@@ -33,15 +45,14 @@ packages <- c("shinythemes", 'shinyWidgets', 'terra', 'shinyjs', 'RCSF', 'DT',
               'raster', 'tools', 'rasterVis', 'data.table')
 
 new.packages <- packages[!(packages %in% utils::installed.packages()[,"Package"])]
-if(length(new.packages)) utils::install.packages(new.packages, quiet = TRUE)
+if(length(new.packages)) utils::install.packages(new.packages, quiet = F)
 
-```
-Once you have installed all the required packages, you can proceed with the installation of the development version of ExtSpecR  package from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
+# Once all dependencies are installed, install ExtSpecR
 devtools::install_github("Yanjie-Li/ExtSpecR")
+
+
 ```
+ 
 
 ## Example
 
@@ -54,10 +65,25 @@ ExtSpecR_app()
 
 ```
 ## (Second way) The R-portable
-If you encounter any issues during installation, you can try the following method: download the R-portable compressed file[R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf), which includes all the required packages, including my ExtSpecR package. After downloading, you can unzip the package, and then click on the "R-Portable.exe" program to open it. You can then use my package normally, for example, using the "ExtSpecR::ExtSpecR_app()" command.
+If you encounter any issues during installation, you can try the following method: 
 
-The advantage of using the R-portable compressed package is that it does not require installation, so you can use it directly without affecting the existing system environment. At the same time, all the required packages have been pre-installed, which can save you time and en1ergy and make it easier for you to use my package.
 
+### 1 Download the R-portable compressed file from the link provided: 
+[R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf)
+### 2 Unzip the package to a desired location.
+### 3 Navigate to the extracted directory and double-click on "R-Portable.exe" to open the R environment.
+### 4 In the R console, load the ExtSpecR package using the following command:
+
+``` r
+library(ExtSpecR)
+```
+### 5 You can then use the functions in ExtSpecR package, for example:
+ 
+``` r
+ExtSpecR_app()
+```
+This will launch the ExtSpecR Shiny app.
+Note that the advantage of using the R-portable package is that it comes with all the required packages pre-installed, so you don't need to install any additional packages or worry about conflicting package versions. Additionally, using R-portable does not affect the existing system environment.
 I hope you can use my R package smoothly! If you still encounter any problems, please do not hesitate to contact me and I will do my best to provide assistance.
  
 ## brief introduction
