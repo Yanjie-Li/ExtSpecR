@@ -544,10 +544,10 @@ ui <- dashboardPage(
                 solidHeader = TRUE,
                 collapsible = TRUE,
                 width = 12,
-                height = "500px",
+                height = "1000px",
 
                 box(title = "False color image",width =6, solidHeader = TRUE,
-                    collapsible = TRUE,status = "info", height = "500px",
+                    collapsible = TRUE,status = "info", height = "1000px",
 
                     plotOutput("plotgraph1", width = "100%", height = "1000px")),
                 box(title = "VI image",width =6, solidHeader = TRUE,

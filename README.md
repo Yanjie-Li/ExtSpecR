@@ -10,6 +10,10 @@ First of all, you need point cloud data with precise positioning information, wh
 
 There are two ways to use ExtSpecR packages, first is the normal way:
 ## (First way) Install package
+### 1 rtools
+ `rtools` required, `rtools` should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
+
+### 2 dependent packages
 Before you install my package, please make sure you have installed some required packages that my package depends on. The following R packages are required:
 `Biobase`,`EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
 If you have not installed any of these packages, you can use the following code to check and install them:
@@ -38,8 +42,6 @@ Once you have installed all the required packages, you can proceed with the inst
 # install.packages("devtools")
 devtools::install_github("Yanjie-Li/ExtSpecR")
 ```
-Enjoy using my R package!
-Note:`rtools` required, `rtools` should install manually from: [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
 
 ## Example
 
