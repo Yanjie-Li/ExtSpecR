@@ -8,14 +8,7 @@
 Welcome to my ExtSpecR R package! The  is a shiny app for single tree multi-spectral extraction This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 
-Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install these packages using the provided code.
-``` r
-# Check if rtools is installed, if not, download and install it
-if (!require("rtools")) {
-  install.packages("https://cran.r-project.org/bin/windows/Rtools/rtools42.exe")
-}
-```
- OR install manually from: 
+Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install `rtools` using the provided link:
 [rtools](https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html).  
 
 We provided two ways to use ExtSpecR pacakge, first is the normal way:
