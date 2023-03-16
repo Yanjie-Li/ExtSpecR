@@ -398,8 +398,8 @@ ui <- dashboardPage(
                                  numericInput("height_png","Height of PNG", value = 1200 ),
                                  numericInput("resolution_PNG","Resolution of PNG", value = 144 ),
                                  style = "margin-top: 25px;",
-                                 downloadButton('downloadPlotPNG','Download Layer plot PNG'),
-                                 downloadButton('downloadPlotPNG2','Download singletree PNG')
+                                 downloadButton('downloadPlotPNG','Download Layer plot PNG',class = "btn btn-primary btn-lg btn-block"),
+                                 downloadButton('downloadPlotPNG2','Download singletree PNG',class = "btn btn-primary btn-lg btn-block")
                                ),
                                plotOutput('distPlot',width = "100%", height = "800px")
 
@@ -519,16 +519,14 @@ ui <- dashboardPage(
               6,
               downloadButton(
                 'downloadPlotPNG22',
-                'Download RGB TIF',
-                # class = "my-download-button"
+                'Download RGB TIF',class = "btn btn-primary btn-lg btn-block"
               )
             ),
             column(
               6,
               downloadButton(
                 'downloadPlotPNG11',
-                'Download single layer TIF',
-                # class = "my-download-button"
+                'Download single layer TIF',class = "btn btn-primary btn-lg btn-block"
               )
             ),
 
@@ -745,7 +743,7 @@ ui <- dashboardPage(
               column(4,  tags$div(
                 style = "text-align: center;", # 将内容居中
                 downloadButton('downloadrgball',
-                               'Downloadrgb',class = "butt1"))  ),
+                               'Downloadrgb',class = "btn btn-primary btn-lg btn-block"))  ),
 
               tags$head(tags$style("#downloadrgball {
   color: #fff;
@@ -772,7 +770,7 @@ ui <- dashboardPage(
 
               column(4,  tags$div(
                 style = "text-align: center;", # 将内容居中
-                downloadButton('downloadsfall','Downloadshp',class = "butt1"))  ),
+                downloadButton('downloadsfall','Downloadshp',class = "btn btn-primary btn-lg btn-block"))  ),
 
               tags$head(tags$style("#downloadsfall {
   color: #fff;
@@ -860,7 +858,7 @@ ui <- dashboardPage(
 
                   column(3,  tags$div(
                     style = "text-align: center;", # 将内容居中
-                    actionButton("drawpolyroi", "Plot ROI point cloud"))  ),
+                    actionButton("drawpolyroi", "Plot ROI point cloud",class = "btn btn-primary btn-lg btn-block"))  ),
 
                   tags$head(tags$style("#drawpolyroi {
   color: #fff;
@@ -887,7 +885,7 @@ ui <- dashboardPage(
 
                   column(3,  tags$div(
                     style = "text-align: center;", # 将内容居中
-                    actionButton("dodo1", "Plot single tree point cloud"))  ),
+                    actionButton("dodo1", "Plot single tree point cloud",class = "btn btn-primary btn-lg btn-block"))  ),
 
 
 
@@ -926,7 +924,7 @@ ui <- dashboardPage(
 
                     column(3,  tags$div(
                       style = "text-align: center;", # 将内容居中
-                      downloadButton("tif_data", label = "Download spectral data"))  ),
+                      downloadButton("tif_data", label = "Download spectral data",class = "btn btn-primary btn-lg btn-block"))  ),
 
                     tags$head(tags$style("#tif_data {
   color: #fff;
@@ -955,7 +953,7 @@ ui <- dashboardPage(
 
                     column(3,  tags$div(
                       style = "text-align: center;", # 将内容居中
-                      downloadButton("cleaned_data", label = "Download ROI PCD (las)"))  ),
+                      downloadButton("cleaned_data", label = "Download ROI PCD (las)",class = "btn btn-primary btn-lg btn-block"))  ),
 
                     tags$head(tags$style("#cleaned_data {
   color: #fff;
@@ -983,7 +981,7 @@ ui <- dashboardPage(
 
                     column(3,  tags$div(
                       style = "text-align: center;", # 将内容居中
-                      downloadButton("cleaned_data2", label = "Download ROI PCD (laz)"))  ),
+                      downloadButton("cleaned_data2", label = "Download ROI PCD (laz)",class = "btn btn-primary btn-lg btn-block"))  ),
 
                     tags$head(tags$style("#cleaned_data2 {
   color: #fff;
@@ -1052,7 +1050,7 @@ ui <- dashboardPage(
                 column(6,
                        tags$div(
                          style = "text-align: center;", # 将内容居中
-                         actionButton("extractBtn", "Extract data", class = "primary"),
+                         actionButton("extractBtn", "Extract data",class = "btn btn-primary btn-lg btn-block"),
                          tags$p("Extract individual tree Spectral")
                        )
                 ),
