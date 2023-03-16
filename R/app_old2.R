@@ -83,12 +83,8 @@ ExtSpecR_app <- function() {
     data1 <- readr::read_rds(system.file("data.rds", package = "ExtSpecR"))
     # data1 <- readr::read_rds('inst/data.rds' )
     expr <- tryCatch({
-
-
-
-
-      nir <- filter(data1, month == monthi )
-      nir2 <- filter(nir, Fam == fami )
+      nir <- dplyr::filter(data1, month == monthi )
+      nir2 <-  dplyr::filter(nir, Fam == fami)
       nir3 <- nir2[,-c(1:4)]
       chl <- nir2[,4]
 
@@ -341,7 +337,6 @@ ui <- dashboardPage(
       tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
     ),
     # tags$head(tags$style(HTML(css))),
-
     useShinyjs(),
     tabItems(
       tabItem(
@@ -608,7 +603,7 @@ ui <- dashboardPage(
                 fluidRow(
                   column(12,
                          tags$div(  style = "text-align: center;", # 将内容居中,
-                           actionButton("drawpoly", "Draw ROI polygon", class = "primary"),
+                           actionButton("drawpoly", "Draw ROI polygon", class = "btn btn-primary btn-lg btn-block"),
                            tags$p("Click the button to draw an ROI region"),
 
                            tags$head(tags$style("#drawpoly {
@@ -713,7 +708,7 @@ ui <- dashboardPage(
               column(12,
                      tags$div(
                        style = "text-align: center;", # 将内容居中
-                       actionButton("statdata", "Start segmentation", class = "primary"),
+                       actionButton("statdata", "Start segmentation",class = "btn btn-primary btn-lg btn-block"),
                        tags$p("Click start to do individual tree detection and segmentation")
                      )
               ),
@@ -835,7 +830,7 @@ ui <- dashboardPage(
                 fluidRow(
                   column(3,  tags$div(
                     style = "text-align: center;", # 将内容居中
-                    actionButton("dodo", "Plot las point cloud"))  ),
+                    actionButton("dodo", "Plot las point cloud",class = "btn btn-primary btn-lg btn-block"))  ),
 
                   tags$head(tags$style("#dodo {
   color: #fff;
@@ -1130,8 +1125,15 @@ ui <- dashboardPage(
                 fluidRow(
                   tags$div(
                     style = "display: flex; justify-content: center;",
-                    column(6, downloadButton("tife_data", label = "Download final extracted data")),
-                    column(6, downloadButton("sf_data", label = "Download final shapefile data"))
+                    column(6, downloadButton("tife_data",
+                                             label = "Download",
+
+                                             class = "btn btn-primary btn-lg btn-block"),
+                           tags$p("Final extracted data")),
+                    column(6, downloadButton("sf_data",
+                                             label = "Download",
+                                             class = "btn btn-primary btn-lg btn-block"),
+                           tags$p("Finalshapefile data"))
                   ),
 
                   tags$head(tags$style(
@@ -1225,8 +1227,8 @@ server <- function(input, output) {
 
 
 
-    nir <- filter(data1, month == trend_data2() )
-    nir2 <- filter(nir, Fam == trend_data() )
+    nir <- dplyr::filter(data1, month == trend_data2() )
+    nir2 <- dplyr::filter(nir, Fam == trend_data() )
     nir3 <- nir2[,-c(1:4)]
     chl <- nir2[,4]
 
@@ -1286,8 +1288,8 @@ server <- function(input, output) {
 
 
 
-    nir <- filter(data1, month == trend_data2() )
-    nir2 <- filter(nir, Fam == trend_data() )
+    nir <- dplyr::filter(data1, month == trend_data2() )
+    nir2 <- dplyr::filter(nir, Fam == trend_data() )
     nir3 <- nir2[,-c(1:4)]
     chl <- nir2[,4]
 
@@ -1782,9 +1784,9 @@ server <- function(input, output) {
   })
   output$plotfinalresult  <- renderPlot({
     finalda  <- finaldata()
-    nir <- filter(finalda, treeID == as.numeric(input$select2) )
+    nir <- dplyr::filter(finalda, treeID == as.numeric(input$select2) )
     re <- names(nir)
-    p1 <-  nir %>% filter(Z> input$heightdata)%>%
+    p1 <-  nir %>% dplyr::filter(Z> input$heightdata)%>%
       ggplot(aes(y,Z,col= re[6] ))+geom_point()
     print(p1)
 
@@ -1965,7 +1967,7 @@ server <- function(input, output) {
 
 
 
-    nir <- filter(finaldata(), treeID == as.numeric(input$select2) )
+    nir <- dplyr::filter(finaldata(), treeID == as.numeric(input$select2) )
     nir3 <- nir[!names(nir) %in% c('x','y','treeID', 'Z', 'area','ID')]
 
 
