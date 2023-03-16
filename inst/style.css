@@ -1,17 +1,17 @@
 body {
-  font-size:  1.2em; !important;
+  font-size:  1.3em; !important;
   font-family: 'Open Sans', sans-serif;
 }
 
 .nav > li > a {
   color:  white !important;
   background-color: #ff8c00 !important;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .nav-tabs > li > a {
   color:  white !important;
   background-color: #ff8c00 !important;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .btn {
@@ -57,30 +57,30 @@ body {
 }
 
 .content-wrapper {
-  padding-top: 1.5em !important;
+  padding-top: 1.2em !important;
 }
 
 .sidebar-menu > li > a {
   color: #c7d0d9 !important;
   font-weight: bold !important;
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
 }
 
 .sidebar-menu > li.active > a {
   background-color: #1c4f6d !important;
   color: #c2dd34 !important;
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
 }
 
 .treeview-menu > li > a {
   background-color: #1c4f6d;
   color: #c7d0d9 !important;
   font-weight: bold !important;
-  font-size: 1.5em !important;
+  font-size: 1.4em !important;
 }
 /* 控制子菜单字体大小 */
 .dropdown-submenu a {
-  font-size: 1.5rem !important; /*设置字体大小*/
+  font-size: 1.4rem !important; /*设置字体大小*/
 }
 .navbar-default .navbar-brand {
   color: #FFFFFF;
@@ -112,6 +112,10 @@ body {
   font-size: 1.5em !important;
   font-weight: bold !important;
   margin: 0 !important;
+}
+
+p {
+  font-size: 1.2em;
 }
 
 .small-box p {

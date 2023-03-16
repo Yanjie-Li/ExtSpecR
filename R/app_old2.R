@@ -291,17 +291,12 @@ ui <- dashboardPage(
       ),
       #第一个
       menuItem(
-        "VIs and examples",
+        "VIs generation",
         icon = icon("database"),
         startExpanded = F,
         menuSubItem(
-          "VIs generation",
+          "VIs",
           tabName = "upload",
-          icon = icon("database")
-        ),
-        menuSubItem(
-          "Example data",
-          tabName = "edit",
           icon = icon("database")
         )
 
@@ -327,7 +322,20 @@ ui <- dashboardPage(
           "Dowload",
           tabName = "calculation"
         )
-      )
+      ),
+
+   menuItem(
+     "Example data",
+     icon = icon("database"),
+     startExpanded = F,
+
+     menuSubItem(
+       "Example",
+       tabName = "edit",
+       icon = icon("database")
+     )
+
+   )
 
     )
   ),
@@ -601,7 +609,7 @@ ui <- dashboardPage(
                 fluidRow(
                   column(12,
                          tags$div(  style = "text-align: center;", # 将内容居中,
-                           actionButton("drawpoly", "Draw ROI polygon", class = "btn btn-primary btn-lg btn-block"),
+                           actionButton("drawpoly", "Draw ROI", class = "btn btn-primary btn-lg btn-block"),
                            tags$p("Click the button to draw an ROI region"),
 
                            tags$head(tags$style("#drawpoly {
