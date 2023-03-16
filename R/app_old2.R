@@ -271,8 +271,6 @@ ExtSpecR_app <- function() {
 "
 
 
-
-
 # Define the UI
 ui <- dashboardPage(
   skin = "blue",
@@ -2124,14 +2122,17 @@ server <- function(input, output) {
 
 
 
+
   red2 <-  reactive({
     sele1 <- input$red1
     dsf1 <- raster::raster(sele1$datapath)
   })
+
   green2 <-  reactive({
     sele2 <- input$gree1
     dsf2 <- raster::raster(sele2$datapath)
   })
+
   blue2 <-  reactive({
     sele3 <- input$blue1
     dsf3 <- raster::raster(sele3$datapath)
