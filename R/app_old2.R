@@ -1509,8 +1509,8 @@ server <- function(input, output) {
                    detail = 'please wait...', value = 0, {
 
                      dsf1 <-  getData()
-                     dsf1 <-  dsf1
-                     res <- terra::writeRaster(dsf1, filename=file,gdal=c("COMPRESS=DEFLATE", "TFW=YES"), overwrite=TRUE, datatype='INT1U')
+                     res <- terra::writeRaster(dsf1, filename=file, overwrite=TRUE )
+                     res
                    })
     }
 
@@ -1803,7 +1803,7 @@ server <- function(input, output) {
 
     idnum <- fdff[fdff$treeID ==  as.numeric(input$select2),]
     p1<-  ggplot() + geom_sf(data = fdff)+
-      geom_sf(data = idnum,col='black')+
+      geom_sf(data = idnum,col='red')+
       geom_sf_text(data=idnum, aes(label = treeID),col='red',size=6)+
       labs(title = paste0('Total trees count:', length(fdff$treeID))  )+
       theme(plot.title = element_text(size = 20, face = "bold"))
@@ -1865,13 +1865,34 @@ server <- function(input, output) {
     if(terra::nlyr(se2) < 3){
 
       tryCatch({
-        sp:: plot(se2[[1]] ,col= viridis(200) )
-        idnum <- sfff1[sfff1$treeID ==  as.numeric(input$select2),]
-        sp::plot(sfff1,border='black', add=T,col=NA,alpha=0.4)
+        rs3 <-c(se2,se2,se2)
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
-        sp::plot(idnum, add=T,alpha=0.4,col='orange')
-        text(idnum, paste(idnum$treeID ),
-             cex=1,col='blue' )
+        p <- ggRGB(rs3,r = 1, g = 3,b = 2, stretch = "hist")+
+          geom_sf(data = sfff1, fill=NA,col='red' )+
+          geom_sf(data = idnum, fill='orange')+
+          ggrepel::geom_label_repel(
+            data = idnum,
+            aes(label = treeID, geometry = geometry),
+            stat = "sf_coordinates",
+            min.segment.length = 0,
+            colour = "red",
+            segment.colour = "orange"
+          )
+
+
+        print(p)
+
+
+        # sp:: plot(se2[[1]] ,col= viridis(200) )
+        # idnum <- sfff1[sfff1$treeID ==  as.numeric(input$select2),]
+        # sp::plot(sfff1,border='red', add=T,col=NA,alpha=0.4)
+        # idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
+        # sp::plot(idnum, add=T,alpha=0.4,col='orange')
+        # text(idnum, paste(idnum$treeID ),
+        #      cex=1,col='blue' )
+
+
+
       },
       error=function(cond) {
         message("Warning: please upload raster images" )
@@ -1881,8 +1902,8 @@ server <- function(input, output) {
       tryCatch({
 
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
-        p <- ggRGB(se2, stretch = "hist")+
-          geom_sf(data = sfff1, fill=NA,col='black' )+
+        p <- ggRGB(se2,r = 1, g = 3,b = 2, stretch = "hist")+
+          geom_sf(data = sfff1, fill=NA,col='red' )+
           geom_sf(data = idnum, fill='orange')+
           ggrepel::geom_label_repel(
             data = idnum,
@@ -1917,13 +1938,20 @@ server <- function(input, output) {
 
   })
 
+  # rgbfiles <- reactive({
+  #   output_file <- "spectral_plot.png"
+  #   png(output_file, width = input$width_png3, height = input$height_png3, res = input$resolution_PNG3)
+  #   rgbplotwithidw <- rgbplotwithid()
+  #   print(rgbplotwithidw)
+  #   dev.off()
+  #   return(output_file)
+  # })
+
   output$downloadrgball  <- downloadHandler(
-
-
     filename = function() {
       x <- gsub(":", ".", Sys.time())
       paste("spetral_", gsub("/", "-", x), ".png", sep = "")
-    } ,
+    },
     content = function(file) {
       withProgress(message = 'Downloading',
                    detail = 'please wait...', value = 0, {
@@ -1931,17 +1959,20 @@ server <- function(input, output) {
                      print(rgbplotwithid())
                      dev.off()
                    })
-    } ,
-
-    contentType = "application/png"
-
+    },
+    contentType = "image/png"
   )
+
+
 
   output$predictPlo  <- renderPlot({
     rgbplotwithidw<- rgbplotwithid()
     print(rgbplotwithidw)
 
   })
+
+
+
 
 
 
