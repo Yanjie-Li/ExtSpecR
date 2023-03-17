@@ -9,7 +9,7 @@
 ## Video Tutorial
 
 <video width="320" height="240" controls>
-  <source src="视频链接" type="video/mp4">
+  <source src="https://youtu.be/NVB1kq8AsK4" type="video/mp4">
 </video>
 
 Check out our video tutorial for a quick introduction:
