@@ -10,10 +10,7 @@
 Check out our video tutorial for a quick introduction:
  
  
-[<img src="https://img.youtube.com/vi/NVB1kq8AsK4/maxresdefault.jpg" width="50%">](https://youtu.be/NVB1kq8AsK4)
-
- 
-[[Watch the video](https://img.youtube.com/vi/NVB1kq8AsK4/maxresdefault.jpg)](https://youtu.be/NVB1kq8AsK4)
+[![Watch the video](https://img.youtube.com/vi/NVB1kq8AsK4/maxresdefault.jpg)](https://youtu.be/NVB1kq8AsK4)
 
 
 
