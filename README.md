@@ -12,7 +12,7 @@
   <source src="https://youtu.be/NVB1kq8AsK4" type="video/mp4">
 </video>
 
-<video src="https://youtu.be/NVB1kq8AsK4"></video>
+[<img src="https://img.youtube.com/vi/<VIDEO ID>/maxresdefault.jpg" width="50%">](https://youtu.be/NVB1kq8AsK4)
 
 
 
