@@ -12,6 +12,11 @@
   <source src="https://youtu.be/NVB1kq8AsK4" type="video/mp4">
 </video>
 
+<video src="https://youtu.be/NVB1kq8AsK4"></video>
+
+
+
+
 Check out our video tutorial for a quick introduction:
  [![Video link](/images/first.jpg)](https://youtu.be/NVB1kq8AsK4)
 Welcome to my ExtSpecR R package! This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
