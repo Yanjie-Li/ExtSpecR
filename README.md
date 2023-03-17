@@ -13,8 +13,7 @@
 </video>
 
 Check out our video tutorial for a quick introduction:
-[!Video link](https://youtu.be/NVB1kq8AsK4)
- [![Demo CountPages alpha](/images/first.jpg)](https://youtu.be/NVB1kq8AsK4)
+ [![Video link](/images/first.jpg)](https://youtu.be/NVB1kq8AsK4)
 Welcome to my ExtSpecR R package! This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction.
 First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 ## Preface
