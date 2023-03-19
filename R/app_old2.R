@@ -820,10 +820,10 @@ ui <- dashboardPage(
 
           ),
           tabPanel(
-            "LAS polt information",
+            "LAS plot information",
             fluidRow(
               box(
-                title = "LAS polt information",
+                title = "LAS plot information",
                 status = "primary",
                 solidHeader = TRUE,
                 collapsible = TRUE,
