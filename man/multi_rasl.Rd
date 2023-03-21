@@ -12,9 +12,11 @@ multi_rasl(las_list, dsf_list, kwsindice, hmin)
 \item{dsf_list}{a list of raster image data, mainly are tif image that read as raster}
 
 \item{kwsindice}{the parameter for find tree}
+
+\item{hmin}{the parameter  of the minimal tree high to use for tree detection. hight less than this values will be abandoned.}
 }
 \value{
-a data list
+a data list that contain the extracted spectral with x,y, and,treeID,tree hegiht(Z),and crown area
 }
 \description{
 multi_rasl is a function that used in the shiny app for data extraction,
@@ -23,8 +25,19 @@ use this polygon to apply on the multispectal image to extract the multispecral
 of each tree and then save as a data list
 }
 \examples{
-none
-
+#please download the example data from this link:https://ln5.sync.com/dl/d6899c6f0/3g32725x-b85yuvm3-ba68kfre-jewun6fk
+library(lidR)
+library(ExtSpecR)
+library(tidyverse)
+las <- readLAScatalog('D:/Desktop/examples/cloud.las')
+las$type <- 'example'
+las_list <- list(las)
+names(las_list)<- c('example')
+image_list <- list(images)
+names(image_list)<- c('example')
+exam_data <- multi_rasl(las_list,dsf_list =image_list,kwsindice = 7,hmin = 3 )
+exam_data1 <- exam_data \%>\% invoke(cbind,.) \%>\% drop_na()
+exam_data1[1:5,]
 
 
 }

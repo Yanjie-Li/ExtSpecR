@@ -2,22 +2,27 @@
 % Please edit documentation in R/app_old2.R
 \name{ExtSpecR_app}
 \alias{ExtSpecR_app}
-\title{SpecexR_app
-this is an shiny app mainly for multispectral extraction using LAS point cloud data}
+\title{ExtSpecR_app()}
 \usage{
 ExtSpecR_app()
 }
 \arguments{
-\item{...}{}
+\item{...}{plese found the information on our website at https://github.com/Yanjie-Li/ExtSpecR.}
 }
 \value{
-final data with x,y location information
+The final data contains essential information such as
+the longitude (x), latitude (y), tree ID, point height (Z),
+crown area (area), and spectral data in rds data frame format.
 }
 \description{
-SpecexR_app
-this is an shiny app mainly for multispectral extraction using LAS point cloud data
+This is a shiny app specially used to extract spectral information of a single tree,
+and I also provide a sample to show what the data looks like after extraction.
+First of all, you need point cloud data with precise positioning information,
+which is used to segment each individual plant in a large area of forest land.
+In addition, you need to have multi-spectral or hyperspectral information of this forest land.
 }
 \examples{
- none
+library(ExtSpecR)
+ExtSpecR::ExtSpecR_app()
 
 }

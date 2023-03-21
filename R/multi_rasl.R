@@ -10,12 +10,23 @@
 #' @param las_list a list of point cloud data
 #' @param dsf_list a list of raster image data, mainly are tif image that read as raster
 #' @param kwsindice the parameter for find tree
-#'
-#' @return a data list
+#' @param hmin  the parameter  of the minimal tree high to use for tree detection. hight less than this values will be abandoned.
+#' @return a data list that contain the extracted spectral with x,y, and,treeID,tree hegiht(Z),and crown area
 #' @export
 #'
-#' @examples none
-#'
+#' @examples #please download the example data from this link:https://ln5.sync.com/dl/d6899c6f0/3g32725x-b85yuvm3-ba68kfre-jewun6fk
+#'library(lidR)
+#'library(ExtSpecR)
+#'library(tidyverse)
+#'las <- readLAScatalog('D:/Desktop/examples/cloud.las')
+#'las$type <- 'example'
+#'las_list <- list(las)
+#'names(las_list)<- c('example')
+#'image_list <- list(images)
+#'names(image_list)<- c('example')
+#'exam_data <- multi_rasl(las_list,dsf_list =image_list,kwsindice = 7,hmin = 3 )
+#'exam_data1 <- exam_data %>% invoke(cbind,.) %>% drop_na()
+#'exam_data1[1:5,]
 #'
 #'
 multi_rasl <- function(las_list, dsf_list, kwsindice, hmin) {
@@ -77,7 +88,7 @@ multi_rasl <- function(las_list, dsf_list, kwsindice, hmin) {
       library(exactextractr)
       prec_chm <- exactextractr::exact_extract(chm23, sf, include_xy = T) %>%
         setNames(paste0(sf$treeID,"_",sf$convhull_area,"_")) %>%
-        invoke(rbind, .) %>%
+        purrr::invoke(rbind, .) %>%
         dplyr::select(1:3) %>%
         as.data.frame()
       names(prec_chm)[1] <- 'Z'
@@ -104,7 +115,7 @@ multi_rasl <- function(las_list, dsf_list, kwsindice, hmin) {
               prec_dfs <- exactextractr::exact_extract(ls222, sf, include_xy = T) %>%
                 setNames(paste0(sf$treeID,"_",sf$convhull_area,"_")) %>%
 
-                invoke(rbind, .) %>%
+                purrr::invoke(rbind, .) %>%
                 dplyr::select(1) %>%
                 as.data.frame()
               names(prec_dfs)  <- names(ls222)

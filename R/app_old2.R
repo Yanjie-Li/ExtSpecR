@@ -1,13 +1,22 @@
-#' SpecexR_app
-#'this is an shiny app mainly for multispectral extraction using LAS point cloud data
+#'ExtSpecR_app()
+#'
+#'This is a shiny app specially used to extract spectral information of a single tree,
+#' and I also provide a sample to show what the data looks like after extraction.
+#' First of all, you need point cloud data with precise positioning information,
+#' which is used to segment each individual plant in a large area of forest land.
+#' In addition, you need to have multi-spectral or hyperspectral information of this forest land.
+#' @param  ... plese found the information on our website at https://github.com/Yanjie-Li/ExtSpecR.
 #'
 #'
-#' @param ...
-#'
-#' @return final data with x,y location information
+#' @return
+#' The final data contains essential information such as
+#' the longitude (x), latitude (y), tree ID, point height (Z),
+#' crown area (area), and spectral data in rds data frame format.
 #' @export
 #'
-#' @examples  none
+#' @examples
+#' library(ExtSpecR)
+#' ExtSpecR::ExtSpecR_app()
 #'
 
 
@@ -37,10 +46,7 @@ ExtSpecR_app <- function() {
   library(tictoc)
   library(readr)
 
-
   # 在安装程序中自动安装依赖项
-
-
   print('data read time')
   raster_read  <- function(url) {
     lapply(url, function(urll){

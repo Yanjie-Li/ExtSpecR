@@ -7,9 +7,11 @@
 #' @return a list of raster images, used for multi_rasl function
 #' @export
 #'
-#' @examples urll1 <- 'E:/PCGSPRO_1623035349/17366648332/42/map/'
-#' @examples ras_all <- raster_alin(urll1)
-#' @examples ras_all <-ras_all %>% unlist(recursive = F)%>%  unlist(recursive = F)
+#' @examples #please download the example data from this link:https://ln5.sync.com/dl/d6899c6f0/3g32725x-b85yuvm3-ba68kfre-jewun6fk
+#' urll1 <- 'D:/Desktop/examples/'
+#' images <- raster_alin(urll1)%>% unlist(recursive = F)%>% do.call(c,.)
+#' images
+
 #'
 #'
 #'
