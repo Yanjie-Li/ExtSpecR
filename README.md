@@ -91,7 +91,7 @@ I hope you can use my R package smoothly! If you still encounter any problems, p
  
 ## brief introduction
 
-let me give a quick rundown of our ExtSpecR_app() website.![Screen](/images/first.jpg) We've got three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
+let me give a quick rundown of our ExtSpecR_app() website.![Screen](/images/fiugre1.PNG) We've got three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
 
 In the Introduction section, we've included a handy flowchart that will guide you through the steps of using our app. It's a great way to get a sense of what you can expect and how to get started.
 
@@ -102,7 +102,7 @@ The workflow for the VIs calculation is shown in the flowing graph:
 ![Screenshot](/images/VIs.png)
 
 The page is showing like this:
-![Screenshot](/images/viss.png)
+![Screenshot](/images/figurevis.PNG)
 
 In the example data section, we've included some data from my own research, extracted with my ExtSpecR package, which includes tree heights, crown area, and crown layer vegetation indices from research site. You can explore each tree's data by viewing the images and checking out the data info page.
 
