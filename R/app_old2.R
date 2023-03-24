@@ -1727,7 +1727,7 @@ server <- function(input, output) {
 
                        message(paste0('project',fdx))
 
-                       dsta <- terra::extract(pr,fer[,c('x','y')],xy=T ) %>% mutate(treeID=fer$treeID,
+                       dsta <- terra::extract(pr,fer[,c('x','y')],xy=T ) %>% dplyr::mutate(treeID=fer$treeID,
                                                                                     Z=fer$z,
                                                                                     area=sf2$convhull_area
                        ) %>%drop_na()
@@ -1738,7 +1738,7 @@ server <- function(input, output) {
                        paste(NaN)
 
                      })
-                   }) %>% invoke(rbind,.)  %>% as.data.frame()%>% mutate_if(is.character,as.numeric)
+                   }) %>% invoke(rbind,.)  %>% as.data.frame()%>% dplyr:: mutate_if(is.character,as.numeric)
 
                    return(crown_se)
                  })

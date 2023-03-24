@@ -69,8 +69,7 @@ ExtSpecR_app()
 ```
 ## (Second way) The R-portable
 If you encounter any issues during installation, you can try the following method: 
-
-
+ 
 ### 1 Download the R-portable compressed file from the link provided: 
 ### [Download R-portable package](https://ln5.sync.com/dl/1d8587200/aubeg7ib-x7ia9bx5-r86f7qqy-2rvuygaf)
 ### 2 Unzip the package to a desired location.
