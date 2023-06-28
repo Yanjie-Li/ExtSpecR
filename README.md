@@ -15,7 +15,7 @@
  
 
 ## Preface
-Welcome to my ExtSpecR R package! This is a shiny app specially used to extract spectral information of a single tree, and I also provide a sample to show what the data looks like after extraction. First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large area of forest land. In addition, you need to have multi-spectral or hyperspectral information of this forest land.
+Welcome to our ExtSpecR R package! This is a shiny application specifically designed to extract spectral information from a single tree, and I also provide a sample to show what the data looks like after extraction. First of all, you need point cloud data with precise positioning information, which is used to segment each individual plant in a large forest area. You also need multispectral or hyperspectral information of that forest area.
 
 
 Before installing the package, you need to make sure that you have installed  `rtools`,You can check and install `rtools` using the provided link:
@@ -23,9 +23,9 @@ Before installing the package, you need to make sure that you have installed  `r
 
 We provided two ways to use ExtSpecR pacakge, first is the normal way:
 ## (First way) Install package
-Before you install my package, please make sure you have installed all of the required packages that my package depends on. The following R packages are required:
+Before installing my package, please make sure you have installed all the required packages that my package depends on. The following R packages are needed:
 `Biobase`, `RStoolbox`, `EBImage`,`shinythemes`,`shinyWidgets`,`terra`,`shinyjs`,`RCSF`,`DT`,`shinydashboard`,`stars`,`colorspace`,`readr`,`sfheaders`,`sf`,`exactextractr`,`lidR`,`tidyverse`,`viridis`,`rgdal`,`tictoc`,`ggrepel`,`raster`,`tools`,`rasterVis`,`data.table`,
-If you have not installed any of these packages, you can use the following code to check and install them:
+If you do not have any of these packages installed, you can use the following code to check and install them:
 ``` r
  # First, check and install required packages
 if (!requireNamespace("devtools", quietly = TRUE)) {
@@ -84,18 +84,18 @@ library(ExtSpecR)
 ``` r
 ExtSpecR_app()
 ```
-This will launch the ExtSpecR Shiny app.
-Note that the advantage of using the R-portable package is that it comes with all the required packages pre-installed, so you don't need to install any additional packages or worry about conflicting package versions. Additionally, using R-portable does not affect the existing system environment.
+This will start the ExtSpecR Shiny application.
+Note that the advantage of using the R-portable package is that it comes with all the necessary packages preinstalled, so you don't have to install any additional packages or worry about conflicting package versions. Also, using R-portable does not interfere with your existing system environment.
 
-I hope you can use my R package smoothly! If you still encounter any problems, please do not hesitate to contact me and I will do my best to provide assistance.
+I hope you can use my R package without any problems! If you encounter any problems, please do not hesitate to contact me and I will do my best to help you.
  
 ## brief introduction
 
-let me give a quick rundown of our ExtSpecR_app() website.![Screen](/images/fiugre1.PNG) We've got three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
+Let me give you a quick overview of our ExtSpecR_app() website ![Screen](/images/fiugre1.PNG) We have three main sections: Introduction, VIs and Examples, and Tree Phenotyping.
 
-In the Introduction section, we've included a handy flowchart that will guide you through the steps of using our app. It's a great way to get a sense of what you can expect and how to get started.
+In the Introduction section, we've included a handy flowchart to guide you through the steps of using our application. It's a great way to get a feel for what to expect and how to get started.
 
-Moving on to VIs and Examples, we have two sub menus: VIs generation and example data. The first one is where you can upload your own five-band TIF raster images from multispectral sensors and calculate different vegetation indices, all while visualizing them on the image display page. Just select the index you want to see, and go to the image display page, You'll get a false-color image and corresponding vegetation index map. Be patient though, it might take some time to process the data due to the size of the TIF files. Once you're done, you can download the resulting images with the click of a button.
+Moving on to VIs and Examples, we have two sub-menus: Generate VIs and Example Data. The first allows you to upload your own five-band TIF raster images from multispectral sensors and calculate different vegetation indices while visualising them on the image display page. Just select the index you want to see and go to the image viewer page, and you'll get a false-colour image and corresponding vegetation index map. Be patient, however, as the data may take some time to process due to the size of the TIF files. When it's done, you can download the resulting images with the click of a button.
 
 
 The workflow for the VIs calculation is shown in the flowing graph:
