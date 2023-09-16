@@ -45,6 +45,9 @@ ExtSpecR_app <- function() {
   library(RStoolbox)
   library(tictoc)
   library(readr)
+  library(shinyBS)
+  # library(purrr)
+
 
   # 在安装程序中自动安装依赖项
   print('data read time')
@@ -690,7 +693,16 @@ ui <- dashboardPage(
                 width = 12,
                 height = "500px",
              fluidRow(
-              column(12, br()),
+               column(12,
+                      tags$p(style = "font-size: 14px;",
+                             tags$span(style = "font-weight: bold; color: blue;", "ws:"),
+                             " numeric or function. Length or diameter of the moving window used to detect the local maxima in the units of the input data (usually meters)"),
+                      tags$p(style = "font-size: 14px;",
+                             tags$span(style = "font-weight: bold; color: red;", "hmin:"),
+                             " numeric. Minimum height of a tree. Threshold below which a pixel or a point cannot be a local maxima. Default is 2."),
+                      br(),
+                      tags$p(style = "font-size: 14px;","Details can be found in the ", tags$code("`lmf`"), "function of the", tags$code("lidR"), " package.")
+               ),
               column(4,
                      tags$div(style = "background-color: transparent;", selectInput(
                        inputId = "wscontro",
@@ -698,7 +710,10 @@ ui <- dashboardPage(
                        choices = seq(0, 10, by = 0.1),
                        selected = 6
                      ))
+                     # tags$p("numeric or function.
+                     #        Length or diameter of the moving window used to detect the local maxima in the units of the input data (usually meters)")
               ),
+
               column(4,
                      tags$div(style = "background-color: transparent;",  selectInput(
                        inputId = "hmincor",
@@ -706,7 +721,11 @@ ui <- dashboardPage(
                        choices = seq(1, 10, by = 0.1),
                        selected = 1.5
                      ))
+                     # tags$p("numeric. Minimum height of a tree.
+                     #        Threshold below which a pixel or a point cannot be a local maxima. Default is 2.")
+
               ),
+
               column(4,
                      tags$div(style = "background-color: transparent;",  selectInput(
                        inputId = "select2",
@@ -1195,7 +1214,7 @@ ui <- dashboardPage(
 
 
 
-options(shiny.maxRequestSize=5000*1024^2)
+options(shiny.maxRequestSize=10000*1024^2)
 server <- function(input, output) {
   trend_data <- reactive({
     sele <-input$status
@@ -1873,7 +1892,7 @@ server <- function(input, output) {
       tryCatch({
         rs3 <-c(se2,se2,se2)
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
-        p <- ggRGB(rs3,r = 1, g = 3,b = 2, stretch = "hist")+
+        p <- ggRGB(rs3,r = 1, g = 2,b = 3, stretch = "lin")+
           geom_sf(data = sfff1, fill=NA,col='red' )+
           geom_sf(data = idnum, fill='orange')+
           ggrepel::geom_label_repel(
@@ -1908,7 +1927,7 @@ server <- function(input, output) {
       tryCatch({
 
         idnum <- sfff1[sfff1$treeID == as.numeric(input$select2),]
-        p <- ggRGB(se2,r = 1, g = 3,b = 2, stretch = "hist")+
+        p <- ggRGB(se2,r = 1, g = 2,b =3, stretch = "lin")+
           geom_sf(data = sfff1, fill=NA,col='red' )+
           geom_sf(data = idnum, fill='orange')+
           ggrepel::geom_label_repel(
