@@ -1162,7 +1162,7 @@ ui <- dashboardPage(
                     column(6, downloadButton("sf_data",
                                              label = "Download",
                                              class = "btn btn-primary btn-lg btn-block"),
-                           tags$p("Finalshapefile data"))
+                           tags$p("Final shapefile data"))
                   ),
 
                   tags$head(tags$style(
