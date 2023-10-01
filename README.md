@@ -7,11 +7,8 @@
 
 ## Citation
 
-If you use this project, please cite the following paper:
-
-### BibTeX
-
-```bibtex
+If you use this project, please cite the following paper
+### BibTe
 @article{doi:10.34133/plantphenomics.0103
   title={ExtSpecR: an R package and tool for extracting trees spectra from UAV-based remote sensing},
   author={Zhuo Liu  and Mahmoud Al-Sarayreh  and Federico Tomasetto  and Cong Xu  and Yanjie Li},
@@ -21,6 +18,8 @@ If you use this project, please cite the following paper:
 URL = {https://spj.science.org/doi/abs/10.34133/plantphenomics.0103}
 eprint = {https://spj.science.org/doi/pdf/10.34133/plantphenomics.0103}
 }
+
+
 ## Video Tutorial
 #### Check out our video tutorial for a quick introduction:
  
