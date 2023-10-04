@@ -21,9 +21,10 @@ URL = {https://spj.science.org/doi/abs/10.34133/plantphenomics.0103}
 eprint = {https://spj.science.org/doi/pdf/10.34133/plantphenomics.0103}
 }
 ```
-### Reference:
+### Infographic
 
-Liu, Z., Al-Sarayreh, M., Tomasetto, F., Xu, C. and Li, Y (2023). ExtSpecR: an R package and tool for extracting trees spectra from UAV-based remote sensing. Plant Phenomics, doi: 10.34133/plantphenomics.0103.
+![Infographic](/images/D-23-00146.jpg)
+
 ## Video Tutorial
 #### Check out our video tutorial for a quick introduction:
  
