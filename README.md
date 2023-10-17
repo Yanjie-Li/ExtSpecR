@@ -11,15 +11,18 @@ If you use this project, please cite the following paper
 ### BibTeX
 
 ```
-@article{doi:10.34133/plantphenomics.0103
-  title={ExtSpecR: an R package and tool for extracting trees spectra from UAV-based remote sensing},
-  author={Zhuo Liu  and Mahmoud Al-Sarayreh  and Federico Tomasetto  and Cong Xu  and Yanjie Li},
-  journal={Plant Phenomics},
-  year={2023},
- doi = {10.34133/plantphenomics.0103},
-URL = {https://spj.science.org/doi/abs/10.34133/plantphenomics.0103}
-eprint = {https://spj.science.org/doi/pdf/10.34133/plantphenomics.0103}
-}
+@article{
+doi:10.34133/plantphenomics.0103,
+author = {Zhuo Liu  and Mahmoud Al-Sarayreh  and Cong Xu  and Federico Tomasetto  and Yanjie Li },
+title = {<i>ExtSpecR</i>: An R Package and Tool for Extracting Tree Spectra from UAV-Based Remote Sensing},
+journal = {Plant Phenomics},
+volume = {5},
+number = {},
+pages = {0103},
+year = {2023},
+doi = {10.34133/plantphenomics.0103},
+URL = {https://spj.science.org/doi/abs/10.34133/plantphenomics.0103},
+eprint = {https://spj.science.org/doi/pdf/10.34133/plantphenomics.0103}}
 ```
 ### Infographic
 
